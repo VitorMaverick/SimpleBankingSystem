@@ -9,6 +9,9 @@ public class UtilDB {
     //String url = "jdbc:sqlite:C:\\Data\\HyperSkill\\card.s3db";
     public String url;
 
+    public UtilDB() {
+        this.url = "jdbc:sqlite:dbTest.s3db";
+    }
     public UtilDB(String url) {
         this.url = "jdbc:sqlite:"+url;
     }

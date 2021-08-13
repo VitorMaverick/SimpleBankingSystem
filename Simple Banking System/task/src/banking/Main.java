@@ -14,7 +14,7 @@ public class Main {
         Manager manager = new Manager();
         AccountRepo ac = new AccountRepo(args[1]);
         ac.createTable();
-        //String url = "jdbc:sqlite:C:\\Data\\HyperSkill\\"+ args[1];
+
 
 
         do{
@@ -50,7 +50,10 @@ public class Main {
                         System.out.println("You have successfully logged in!");
                         do{
                             System.out.println("1. Balance");
-                            System.out.println("2. Log out");
+                            System.out.println("2. Add income");
+                            System.out.println("3. Do transfer");
+                            System.out.println("4. Close account");
+                            System.out.println("5. Log out");
                             System.out.println("0. Exit");
                             innerCommand =  scanner.nextInt();
 
@@ -58,7 +61,22 @@ public class Main {
                                 String output = String.format("Balance: %.2f", account.getBalance());
                                 System.out.println(output);
                             }else if(innerCommand == 2) {
-                                break;
+                                System.out.println("Enter income:");
+                                double valor = scanner.nextDouble();
+                                if(account.retirada(valor)){
+                                    System.out.println("Income was added!");
+                                }else{
+                                    System.out.println("Not enough money!");
+                                }
+                            }else if(innerCommand == 2) {
+                                System.out.println("Transfer\n" +
+                                        "Enter card number:");
+                                double valor = scanner.nextDouble();
+                                if(account.retirada(valor)){
+                                    System.out.println("Income was added!");
+                                }else{
+                                    System.out.println("Not enough money!");
+                                }
                             }else if(innerCommand == 0){
                                 command = 0;
                                 break;
